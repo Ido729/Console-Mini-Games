@@ -6,7 +6,7 @@ class objects:
     def __init__(self):
         self.letters = string.ascii_uppercase
         self.chosen_letter = random.choice(self.letters)
-        self.subjects_list = ['city', 'movie', 'animal', 'Game', 'country',
+        self.subjects_list = ['City', 'Movie', 'Animal', 'Game', 'Country',
                               'Name', 'Sport', 'Food', 'Carton', 'Hobbies']
         self.subjects = random.sample(self.subjects_list, k=5)
         self.used = []
