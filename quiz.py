@@ -25,6 +25,7 @@ def First_question():
     answers_options = [f"A.{var.answers[A]}",
                        f"B.{var.answers[B]}",
                        f"C.{var.answers[C]}"]
+    
     joined_string = "\n".join(answers_options)
     first = var.questions[0]
     print(first)
@@ -48,6 +49,7 @@ def Secondary_question():
     answers_options = [f"A.{var.answers[A]}",
                        f"B.{var.answers[B]}",
                        f"C.{var.answers[C]}"]
+    
     joined_string = "\n".join(answers_options)
     second = var.questions[1]
     print(second)
@@ -71,6 +73,7 @@ def Third_question():
     answers_options = [f"A.{var.answers[A]}",
                        f"B.{var.answers[B]}",
                        f"C.{var.answers[C]}"]
+    
     joined_string = "\n".join(answers_options)
     third = var.questions[2]
     print(third)
