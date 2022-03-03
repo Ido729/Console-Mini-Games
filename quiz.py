@@ -1,107 +1,98 @@
 class objects:
-    def __init__(self):
-        self.answer = ["A", "B", "C"]
+    def __init__(self, A, B, C, D):
+        self.A = A
+        self.B = B
+        self.C = C
+        self.D = D
+
+
+        self.answers = ["A", "B", "C", "D"]
+
         self.questions = ["Which is the most common drink in Europe? ",
                           "What is Elon Musk car company? ",
-                          "How many stars in the USA flag? "]
-
-        self.answers = ["Beer", "Water", "Wine",
-                        "Mazda", "Tesla", "Ferrari",
-                        "50", "47", "52",]
+                          "How many stars in the USA flag? ",
+                          "What is a tomato? "]
 
         self.game_running = True
-        self.questions_left = 3
+        self.questions_left = 4
         self.count_right = 0
+        self.grade = 0
+        self.answer = None
         self.new_line = "-----------------------"
 
+    def details(self):
+        print(f"A.{self.A}")
+        print(f"B.{self.B}")
+        print(f"C.{self.C}")
+        print(f"D.{self.D}")
 
-var = objects()
+
+var = objects(1, 2, 3, 4)
 
 
 def First_question():
-    A = 0
-    B = 1
-    C = 2
-    answers_options = [f"A.{var.answers[A]}",
-                       f"B.{var.answers[B]}",
-                       f"C.{var.answers[C]}"]
-    
-    joined_string = "\n".join(answers_options)
+    words = objects("Beer", "Water", "Wine", "tea")
     first = var.questions[0]
     print(first)
-    print(joined_string)
-    player_answer = input("Your answer: ")
-    for answer in player_answer:
-        answer = var.answer[0]
-        if player_answer == answer:
-            var.count_right += 1
-            print("Right!")
-        else:
-            print("Wrong!")
-    print(var.new_line)
-    var.questions_left -= 1
+    words.details()
+    var.answer = var.answers[0]
+    checking()
 
 
 def Secondary_question():
-    A = 3
-    B = 4
-    C = 5
-    answers_options = [f"A.{var.answers[A]}",
-                       f"B.{var.answers[B]}",
-                       f"C.{var.answers[C]}"]
-    
-    joined_string = "\n".join(answers_options)
+    words = objects("Mazda", "Tesla", "toyota", "ferrari")
     second = var.questions[1]
     print(second)
-    print(joined_string)
-    player_answer = input("Your answer is: ")
-    for answer in player_answer:
-        answer = var.answer[1]
-        if player_answer == answer:
-            var.count_right += 1
-            print("Right!")
-        else:
-            print("Wrong!")
-    print(var.new_line)
-    var.questions_left -= 1
+    words.details()
+    var.answer = var.answers[1]
+    checking()
 
 
 def Third_question():
-    A = 6
-    B = 7
-    C = 8
-    answers_options = [f"A.{var.answers[A]}",
-                       f"B.{var.answers[B]}",
-                       f"C.{var.answers[C]}"]
-    
-    joined_string = "\n".join(answers_options)
+    words = objects(69, 47, 52, 50)
     third = var.questions[2]
     print(third)
-    print(joined_string)
+    words.details()
+    var.answer = var.answers[3]
+    checking()
+
+
+def fourth_question():
+    words = objects("Vegetable", "Fruit", "Protein", "Herb")
+    fourth = var.questions[3]
+    print(fourth)
+    words.details()
+    var.answer = var.answers[1]
+    checking()
+
+
+def checking():
     player_answer = input("Your answer is: ")
-    for answer in player_answer:
-        answer = var.answer[0]
-        if player_answer == answer:
-            var.count_right += 1
-            print("Right!")
-        else:
-            print("Wrong!")
+    if player_answer == var.answer:
+        var.grade += 25
+        var.count_right += 1
+        print("Right!")
+    else:
+        print("Wrong!")
     print(var.new_line)
     var.questions_left -= 1
 
 
 def game_over():
     if var.questions_left == 0:
-        print(f"Game over, You've right in {var.count_right} questions!")
+        print(f"You've guessed {var.count_right} questions right, Your grade is {var.grade}!")
         var.game_running = False
+
 
 
 def game():
     First_question()
     Secondary_question()
     Third_question()
+    fourth_question()
     game_over()
 
 
 while var.game_running:
     game()
+
