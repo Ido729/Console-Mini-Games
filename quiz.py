@@ -40,7 +40,7 @@ def First_question():
 
 
 def Secondary_question():
-    words = objects("Mazda", "Tesla", "toyota", "ferrari")
+    words = objects("Mazda", "Tesla", "Toyota", "Ferrari")
     second = var.questions[1]
     print(second)
     words.details()
